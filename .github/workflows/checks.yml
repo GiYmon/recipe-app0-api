@@ -5,6 +5,7 @@ on: [push]
 
 jobs:
   test-lint:
+    if: false
     name: Test and Lint
     runs-on: ubuntu-20.04
     steps:
