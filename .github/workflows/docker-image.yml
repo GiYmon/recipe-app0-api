@@ -27,7 +27,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: giymon/test
-          falvor: |
+          flavor: |
             latest=false
           tags: |
             type=raw,value=04
@@ -44,5 +44,5 @@ jobs:
           labels: ${{ steps.docker_meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          platform: linux/amd64,linux/arm64,linux/arm/v7
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
           
