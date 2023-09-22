@@ -4,11 +4,15 @@ on:
   push:
     branches:
       - 'main'
+  pull_request:
 
 jobs:
-  docker:
+  build-image:
     name: Build Image
     runs-on: ubuntu-latest
+
+    permissions:
+      pull-requests: write
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -44,5 +48,5 @@ jobs:
           labels: ${{ steps.docker_meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          platforms: linux/amd64
           
